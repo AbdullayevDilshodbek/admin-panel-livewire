@@ -1,0 +1,30 @@
+*********** MAIN SETTINGS **************
+* create component
+    php artisan make:component AppLayout
+* Copy code from welcome.blade to app-layout.blade all code and delete `antialiased` class ichidagilarni
+    va quydagicha bo'ladi: `
+        </style>
+        <livewire:styles />
+    </head>
+    <body class="antialiased">
+        {{ $slot }}
+        <livewire:scripts />
+    </body>
+</html>
+    `
+* welcome blade ichida `<x-app-layout></x-app-layout>` yoz
+
+**** tailwindcss install *******
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+// tailwindcss docs ni laravel u-n o'rnatish ni ko'r
+resources/css/app.css ga qo'y => `
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+`
+
+****** COUNTER YARATISH ***************
+php artisan make:livewire Counter
+Bunda App/Http/Livewire ichida Counter.php va
+resources/views/livewire da counter.blade.php yaraladi.
